@@ -1,0 +1,9 @@
+{
+  "name": "linkedin-content-hider",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local-only Chrome extension for filtering explicitly unwanted LinkedIn posts.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

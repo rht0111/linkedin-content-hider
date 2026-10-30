@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Content Hider</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <main class="container">
+
+        <header>
+            <h1>LinkedIn Content Hider</h1>
+            <p class="subtitle">Control what disappears from your feed.</p>
+        </header>
+
+        <section class="master-section">
+            <label class="setting-row master-row">
+                <span>
+                    <strong>Enable extension</strong>
+                </span>
+                <input type="checkbox" id="masterEnabled">
+            </label>
+        </section>
+
+        <section>
+            <h2>Built-in filters</h2>
+
+            <label class="setting-row">
+                <span>Sponsored posts and ads</span>
+                <input type="checkbox" data-filter="sponsored">
+            </label>
+
+            <label class="setting-row">
+                <span>Generic AI hype</span>
+                <input type="checkbox" data-filter="aiHype">
+            </label>
+
+            <label class="setting-row">
+                <span>HR and recruitment</span>
+                <input type="checkbox" data-filter="hrRecruitment">
+            </label>
+
+            <label class="setting-row">
+                <span>Management and leadership</span>
+                <input type="checkbox" data-filter="management">
+            </label>
+        </section>
+
+        <section class="stats">
+            <div><span>Detected posts</span><strong id="detectedCount">0</strong></div>
+            <div><span>Hidden posts</span><strong id="hiddenCount">0</strong></div>
+        </section>
+        <p id="diagnostics" class="diagnostics" role="status">Counts are calculated locally on LinkedIn.</p>
+
+        <section>
+            <h2>Custom topics</h2>
+
+            <form id="topicForm">
+
+                <input
+                    type="text"
+                    id="topicInput"
+                    placeholder="Enter a topic or phrase"
+                    maxlength="80"
+                    required
+                >
+
+                <div class="form-controls">
+
+                    <select id="topicAction">
+                        <option value="block">Block</option>
+                        <option value="allow">Allow</option>
+                    </select>
+
+                    <button type="submit">Add topic</button>
+
+                </div>
+            </form>
+
+            <p id="topicMessage" class="message" role="status"></p>
+
+            <div id="topicList" class="topic-list"></div>
+        </section>
+
+        <footer>
+            Allow rules override topic blocking.
+            Sponsored filtering is independent.
+        </footer>
+
+    </main>
+
+    <script src="settings.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
